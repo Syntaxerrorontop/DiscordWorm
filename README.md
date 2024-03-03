@@ -11,7 +11,7 @@ This is a simple Discord worm script written in Python using the requests librar
 ### Prerequisites
 
 - Python 3.x
-- requests library (install via `pip install requests`)
+- requests library (install via `pip install -r requirements.txt`)
 
 ### Usage
 
