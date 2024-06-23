@@ -3,10 +3,6 @@ import time
 import os
 import sys
 
-class FileNameTwice(Exception):
-    def __init__(self, *args) -> None:
-        super().__init__(*args)
-
 class config:
     # TODO CHANGE THIS VARS IMPORTANT
     SELF_NAME = "MYNAME.py"
