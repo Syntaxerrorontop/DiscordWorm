@@ -38,7 +38,7 @@ This is a simple Discord worm script written in Python using the requests librar
     ```
 
     You also need a script that get the Token then execute this script
-    To Run ony This script will do nothing!
+    To Run only This script will do nothing!
 
 ## Configuration
 
